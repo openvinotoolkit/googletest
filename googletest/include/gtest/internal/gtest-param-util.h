@@ -659,9 +659,9 @@ class ParameterizedTestSuiteInfo : public ParameterizedTestSuiteInfoBase {
     if (name.empty()) return false;
 
     // Check for invalid characters
-    for (std::string::size_type index = 0; index < name.size(); ++index) {
-      if (!IsAlNum(name[index]) && name[index] != '_') return false;
-    }
+    // for (std::string::size_type index = 0; index < name.size(); ++index) {
+    //   if (!IsAlNum(name[index]) && name[index] != '_') return false;
+    // }
 
     return true;
   }
