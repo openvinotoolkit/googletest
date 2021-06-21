@@ -626,10 +626,10 @@ class ParameterizedTestSuiteInfo : public ParameterizedTestSuiteInfoBase {
       return false;
 
     // Check for invalid characters
-    for (std::string::size_type index = 0; index < name.size(); ++index) {
-      if (!isalnum(name[index]) && name[index] != '_')
-        return false;
-    }
+    // for (std::string::size_type index = 0; index < name.size(); ++index) {
+    //   if (!isalnum(name[index]) && name[index] != '_')
+    //     return false;
+    // }
 
     return true;
   }
