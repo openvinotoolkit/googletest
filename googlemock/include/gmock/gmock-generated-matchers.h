@@ -318,13 +318,13 @@
      public:\
       explicit gmock_Impl(p0##_type gmock_p0)\
            : p0(::std::move(gmock_p0)) {}\
-      virtual bool MatchAndExplain(\
+      bool MatchAndExplain(\
           GTEST_REFERENCE_TO_CONST_(arg_type) arg,\
-          ::testing::MatchResultListener* result_listener) const;\
-      virtual void DescribeTo(::std::ostream* gmock_os) const {\
+          ::testing::MatchResultListener* result_listener) const override;\
+      void DescribeTo(::std::ostream* gmock_os) const override{\
         *gmock_os << FormatDescription(false);\
       }\
-      virtual void DescribeNegationTo(::std::ostream* gmock_os) const {\
+      void DescribeNegationTo(::std::ostream* gmock_os) const override{\
         *gmock_os << FormatDescription(true);\
       }\
       p0##_type const p0;\
