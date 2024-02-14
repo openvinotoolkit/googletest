@@ -816,7 +816,12 @@ struct InvokeMethodWithoutArgsAction {
   Class* const obj_ptr;
   const MethodPtr method_ptr;
 
+#if (defined(_MSVC_LANG) && (_MSVC_LANG > 201703L)) || \
+    (defined(__cplusplus) && (__cplusplus > 201703L))
+  using ReturnType = std::invoke_result_t<MethodPtr, Class*>;
+#else
   using ReturnType = typename std::result_of<MethodPtr(Class*)>::type;
+#endif
 
   template <typename... Args>
   ReturnType operator()(const Args&...) const {
