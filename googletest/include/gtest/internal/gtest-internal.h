@@ -1289,6 +1289,10 @@ constexpr bool InstantiateTypedTestCase_P_IsDeprecated() { return true; }
     try { \
       GTEST_SUPPRESS_UNREACHABLE_CODE_WARNING_BELOW_(statement); \
     } \
+    catch (ov::Exception e) { \
+      fail("Expected: " #statement " doesn't throw an exception.\n" \
+           "  Actual: it throws: ") << e.what(); \
+    } \
     catch (...) { \
       goto GTEST_CONCAT_TOKEN_(gtest_label_testnothrow_, __LINE__); \
     } \
